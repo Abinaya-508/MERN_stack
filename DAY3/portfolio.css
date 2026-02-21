@@ -1,0 +1,201 @@
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    background: radial-gradient(circle at top, #0f2027, #000000);
+    color: #e0e0e0;
+    line-height: 1.7;
+    padding: 20px;
+}
+
+/* Headings – futuristic look */
+h1, h2, h3 {
+    font-family: "Segoe UI", "Trebuchet MS", Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00f5ff;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.2);
+}
+
+/* Navigation */
+nav {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(0, 245, 255, 0.08);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #00f5ff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 15px #00f5ff;
+}
+
+/* Sections */
+section {
+    margin-bottom: 40px;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.15);
+}
+
+/* Article */
+article {
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 4px solid #00f5ff;
+    background: rgba(0, 245, 255, 0.05);
+}
+
+/* Lists */
+ol, ul {
+    margin-left: 30px;
+}
+
+li {
+    margin: 8px 0;
+}
+
+/* Details */
+details {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(0, 245, 255, 0.05);
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #00f5ff;
+}
+
+/* Figures */
+figure {
+    margin: 20px auto;
+    text-align: center;
+}
+
+figure img,
+figure video,
+figure audio {
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #9ffcff;
+}
+
+/* Progress bars */
+progress {
+    width: 100%;
+    height: 18px;
+}
+
+progress::-webkit-progress-bar {
+    background: #1a1a1a;
+    border-radius: 20px;
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #00f5ff, #7cffcb);
+    border-radius: 20px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+caption {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #00f5ff;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+}
+
+th {
+    background: rgba(0, 245, 255, 0.15);
+}
+
+/* Form */
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #0f2027;
+    color: #00f5ff;
+    outline: none;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #00f5ff, #7cffcb);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.8);
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 15px;
+    background: rgba(0, 245, 255, 0.08);
+    color: #9ffcff;
+}
