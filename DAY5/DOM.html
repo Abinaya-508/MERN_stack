@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Practice Project</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+.product-card {
+    padding: 10px;
+    margin: 5px 0;
+    background: #f4f4f4;
+}
+
+.menu li {
+    padding: 5px;
+}
+
+.highlight {
+    background: yellow;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.swatch {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: 100px auto;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="header-title">Original Title</h1>
+
+<h2>Product Cards</h2>
+<div class="product-card">Product 1</div>
+<div class="product-card">Product 2</div>
+
+<h2>Menu</h2>
+<ul class="menu">
+    <li>Home</li>
+    <li>About</li>
+    <li>Contact</li>
+</ul>
+
+<div id="controls"></div>
+
+<h2>Cart</h2>
+<div id="cart"></div>
+
+<h2>Avatar</h2>
+<img class="avatar" src="https://via.placeholder.com/100" width="100">
+
+<h2>Article</h2>
+<div class="article-body">
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+</div>
+
+<button id="theme-toggle">Toggle Theme</button>
+
+<h2>Cards</h2>
+<div class="card">
+    <p>Card 1</p>
+    <button data-action="delete">Delete</button>
+</div>
+
+<h2>Users List</h2>
+<ul id="users-list">
+    <li data-user-id="101">John</li>
+    <li data-user-id="102">Alice</li>
+</ul>
+
+<h2>Counter</h2>
+<span id="count">0</span>
+<button id="plus">+1</button>
+<button id="minus">-1</button>
+
+<h2>Search Countries</h2>
+<input id="search" placeholder="Search country...">
+<ul>
+    <li class="country">India</li>
+    <li class="country">USA</li>
+    <li class="country">Canada</li>
+    <li class="country">Germany</li>
+</ul>
+
+<h2>Color Picker</h2>
+<div class="swatch" data-color="#e74c3c" style="background:#e74c3c"></div>
+<div class="swatch" data-color="#3498db" style="background:#3498db"></div>
+<div class="swatch" data-color="#2ecc71" style="background:#2ecc71"></div>
+<div class="swatch" data-color="#f1c40f" style="background:#f1c40f"></div>
+<div class="swatch" data-color="#9b59b6" style="background:#9b59b6"></div>
+<div class="swatch" data-color="#34495e" style="background:#34495e"></div>
+
+<h2>Sortable List</h2>
+<ul id="sortable">
+    <li draggable="true">Item 1</li>
+    <li draggable="true">Item 2</li>
+    <li draggable="true">Item 3</li>
+</ul>
+
+<button id="openModal">Open Modal</button>
+
+<h2>Todo List</h2>
+<input id="todoInput">
+<button id="addTodo">Add</button>
+<ul id="todoList"></ul>
+
+<script>
+// 1
+document.getElementById("header-title").textContent = "My Awesome Page";
+
+// 2
+document.querySelectorAll(".product-card")
+    .forEach(card => card.style.border = "2px solid red");
+
+// 3
+document.querySelectorAll("ul.menu li")
+    .forEach(li => li.style.backgroundColor = "lightblue");
+
+// 4
+const btn = document.createElement("button");
+btn.textContent = "Click me!";
+document.getElementById("controls").appendChild(btn);
+
+// 5
+const item = document.createElement("div");
+item.className = "item";
+item.innerHTML = "<span>Apple</span><button>Remove</button>";
+document.getElementById("cart").appendChild(item);
+
+// 6
+document.querySelector(".avatar").src =
+"https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d";
+
+// 7
+document.querySelectorAll(".article-body > p")
+    .forEach(p => p.classList.add("highlight"));
+
+// 8
+document.getElementById("theme-toggle")
+    .addEventListener("click", () =>
+    document.body.classList.toggle("dark-mode"));
+
+// 9
+document.querySelectorAll('[data-action="delete"]')
+    .forEach(btn => btn.addEventListener("click",
+    e => e.target.closest(".card").remove()));
+
+// 10 Todo
+document.getElementById("addTodo").addEventListener("click", () => {
+    const input = document.getElementById("todoInput");
+    if (!input.value.trim()) return;
+
+    const li = document.createElement("li");
+    li.textContent = input.value;
+
+    const del = document.createElement("button");
+    del.textContent = "Delete";
+    del.onclick = () => li.remove();
+
+    li.appendChild(del);
+    document.getElementById("todoList").appendChild(li);
+
+    input.value = "";
+});
+
+// 11 Event Delegation
+document.getElementById("users-list")
+    .addEventListener("click", e => {
+    if (e.target.tagName === "LI") {
+        console.log("Clicked user ID:", e.target.dataset.userId);
+    }
+    });
+
+// 12 Counter
+let count = 0;
+document.getElementById("plus").onclick = () => {
+    count++;
+    document.getElementById("count").textContent = count;
+};
+document.getElementById("minus").onclick = () => {
+    if (count > 0) count--;
+    document.getElementById("count").textContent = count;
+};
+
+// 13 Live Search
+document.getElementById("search")
+    .addEventListener("input", function() {
+    const value = this.value.toLowerCase();
+    document.querySelectorAll(".country").forEach(li => {
+        li.style.display =
+        li.textContent.toLowerCase().includes(value)
+        ? "" : "none";
+    });
+    });
+
+// 14 Color Picker
+document.querySelectorAll(".swatch")
+    .forEach(s => s.onclick =
+    () => document.body.style.backgroundColor = s.dataset.color);
+
+// 15 Sortable
+let dragged;
+document.querySelectorAll("#sortable li").forEach(li => {
+    li.addEventListener("dragstart", () => dragged = li);
+    li.addEventListener("dragover", e => e.preventDefault());
+    li.addEventListener("drop", function() {
+    this.parentNode.insertBefore(dragged, this);
+    });
+});
+
+// 16 Modal
+document.getElementById("openModal").onclick = () => {
+    const overlay = document.createElement("div");
+    overlay.className = "modal-overlay";
+
+    const modal = document.createElement("div");
+    modal.className = "modal";
+    modal.innerHTML = `
+    <h2>Modal Title</h2>
+    <p>This is a simple modal.</p>
+    <button id="closeModal">Close</button>
+    `;
+
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+
+    document.getElementById("closeModal").onclick =
+    () => overlay.remove();
+
+    overlay.onclick = e => {
+    if (e.target === overlay) overlay.remove();
+    };
+};
+</script>
+
+</body>
+</html>
