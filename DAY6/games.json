@@ -1,0 +1,138 @@
+{
+    "videoGames": [
+    {
+        "id": "1",
+        "title": "The Legend of Zelda: Breath of the Wild",
+        "genre": [
+        "Action",
+        "Adventure",
+        "Open World"
+        ],
+        "platform": [
+        "Nintendo Switch",
+        "Wii U"
+        ],
+        "releaseYear": 2017,
+        "developer": "Nintendo",
+        "publisher": "Nintendo",
+        "rating": 9.8,
+        "price": 59.99,
+        "modes": [
+        "Single Player"
+        ],
+        "image": "zelda_botw.jpg",
+        "description": "An open-world adventure game where players explore the vast land of Hyrule."
+    },
+    {
+        "id": "2",
+        "title": "God of War",
+        "genre": [
+        "Action",
+        "Adventure"
+        ],
+        "platform": [
+        "PlayStation 4",
+        "PlayStation 5"
+        ],
+        "releaseYear": 2018,
+        "developer": "Santa Monica Studio",
+        "publisher": "Sony Interactive Entertainment",
+        "rating": 9.6,
+        "price": 49.99,
+        "modes": [
+        "Single Player"
+        ],
+        "image": "god_of_war.jpg",
+        "description": "A mythological action game following Kratos and his son Atreus."
+    },
+    {
+        "id": "3",
+        "title": "Minecraft",
+        "genre": [
+        "Sandbox",
+        "Survival"
+        ],
+        "platform": [
+        "PC",
+        "Xbox",
+        "PlayStation",
+        "Mobile"
+        ],
+        "releaseYear": 2011,
+        "developer": "Mojang",
+        "publisher": "Mojang",
+        "rating": 9,
+        "price": 26.95,
+        "modes": [
+        "Single Player",
+        "Multiplayer"
+        ],
+        "image": "minecraft.jpg",
+        "description": "A sandbox game where players build and explore infinite worlds."
+    },
+    {
+        "id": "4",
+        "title": "Grand Theft Auto V",
+        "genre": [
+        "Action",
+        "Open World"
+        ],
+        "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+        ],
+        "releaseYear": 2013,
+        "developer": "Rockstar North",
+        "publisher": "Rockstar Games",
+        "rating": 9.7,
+        "price": 39.99,
+        "modes": [
+        "Single Player",
+        "Online Multiplayer"
+        ],
+        "image": "gta_v.jpg",
+        "description": "An open-world crime game set in the fictional city of Los Santos."
+    },
+    {
+        "id": "5",
+        "title": "Elden Ring",
+        "genre": [
+        "RPG",
+        "Action",
+        "Fantasy"
+        ],
+        "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+        ],
+        "releaseYear": 2022,
+        "developer": "FromSoftware",
+        "publisher": "Bandai Namco",
+        "rating": 9.5,
+        "price": 59.99,
+        "modes": [
+        "Single Player",
+        "Online Multiplayer"
+        ],
+        "image": "elden_ring.jpg",
+        "description": "A dark fantasy action RPG set in a vast open world."
+    },
+    {
+        "id": "8483",
+        "title": "Candy crush",
+        "genre": [
+        "Creative",
+        "Playful",
+        "Interesting"
+        ],
+        "platform": [
+        "Playstore"
+        ],
+        "price": "$23.5",
+        "rating": "9.4",
+        "releaseYear": 2026
+    }
+    ]
+}

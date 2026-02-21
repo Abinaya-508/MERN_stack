@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Video Games Collection</title>
+
+<style>
+body {
+    background: #111;
+    color: white;
+    font-family: Arial;
+}
+
+input, button {
+    padding: 8px;
+    margin: 5px;
+}
+
+.card {
+    background: #1e1e1e;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎮 Video Games Collection</h1>
+
+<!-- Search -->
+<input type="text" id="search" placeholder="Search by title">
+
+<!-- Add Game -->
+<h3>Add New Game</h3>
+<input id="title" placeholder="Title">
+<input id="genre" placeholder="Genre (comma separated)">
+<input id="platform" placeholder="Platform (comma separated)">
+<input id="price" placeholder="Price">
+<input id="rating" placeholder="Rating">
+<button onclick="addGame()">Add Game</button>
+
+<hr>
+
+<div id="games"></div>
+
+<script>
+const API = "http://localhost:3000/videoGames";
+const container = document.getElementById("games");
+const searchInput = document.getElementById("search");
+
+let gamesData = [];
+
+// FETCH DATA
+function fetchGames() {
+    fetch(API)
+    .then(res => res.json())
+    .then(data => {
+        gamesData = data;
+        displayGames(data);
+    })
+    .catch(err => console.error("Error fetching games:", err));
+}
+
+// DISPLAY DATA (DOM MANIPULATION)
+function displayGames(data) {
+    container.innerHTML = "";
+
+    data.forEach(game => {
+        const div = document.createElement("div");
+        div.className = "card";
+
+        div.innerHTML = `
+            <h2>${game.title}</h2>
+            <p><b>Genre:</b> ${game.genre.join(", ")}</p>
+            <p><b>Platform:</b> ${game.platform.join(", ")}</p>
+            <p><b>Release Year:</b> ${game.releaseYear || "-"}</p>
+            <p><b>Developer:</b> ${game.developer || "-"}</p>
+            <p><b>Price:</b> $${game.price}</p>
+            <p><b>Rating:</b> ⭐ ${game.rating}</p>
+            <button onclick="deleteGame(${game.id})">Delete</button>
+        `;
+
+        container.appendChild(div);
+    });
+}
+
+// SEARCH
+searchInput.addEventListener("input", () => {
+    const value = searchInput.value.toLowerCase();
+    const filtered = gamesData.filter(game =>
+        game.title.toLowerCase().includes(value)
+    );
+    displayGames(filtered);
+});
+
+// ADD GAME (POST)
+function addGame() {
+    const newGame = {
+        title: document.getElementById("title").value,
+        genre: document.getElementById("genre").value.split(",").map(g => g.trim()),
+        platform: document.getElementById("platform").value.split(",").map(p => p.trim()),
+        price: document.getElementById("price").value,
+        rating: document.getElementById("rating").value,
+        releaseYear: new Date().getFullYear()
+    };
+
+    fetch(API, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newGame)
+    })
+    .then(() => {
+        fetchGames();
+        clearInputs();
+    })
+    .catch(err => console.error("Error adding game:", err));
+}
+
+// DELETE GAME
+function deleteGame(id) {
+    fetch(`${API}/${id}`, {
+        method: "DELETE"
+    })
+    .then(() => fetchGames())
+    .catch(err => console.error("Error deleting game:", err));
+}
+
+// CLEAR INPUT FIELDS
+function clearInputs() {
+    document.getElementById("title").value = "";
+    document.getElementById("genre").value = "";
+    document.getElementById("platform").value = "";
+    document.getElementById("price").value = "";
+    document.getElementById("rating").value = "";
+}
+
+// INITIAL LOAD
+fetchGames();
+</script>
+
+</body>
+</html>
