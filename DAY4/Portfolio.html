@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abinaya - Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+
+<header>
+    <h1>Abinaya</h1>
+    <p>
+        Hello! I am <b>Abinaya</b>, an <i>engineering student</i> who loves 
+        <u>web development</u>. I am <s>lazy</s> motivated to learn new 
+        technologies. I believe in <sup>hard work</sup> and 
+        <sub>consistency</sub>. My favorite tag is <code>&lt;html&gt;</code>.
+    </p>
+</header>
+
+<nav>
+    <h2>Navigation</h2>
+    <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#academics">Academics</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+
+    <article>
+        <h3>My Goal</h3>
+        <p>
+            My goal is to become a skilled software engineer and build 
+            meaningful applications that solve real-world problems.
+        </p>
+    </article>
+
+    <details>
+        <summary>More About Me</summary>
+        <p>
+            I enjoy learning programming languages, working on mini projects,
+            and exploring new technologies.
+        </p>
+    </details>
+</section>
+
+<section id="skills">
+    <h2>Skills & Interests</h2>
+
+    <h3>Technical Skills</h3>
+    <ol>
+        <li>HTML</li>
+        <li>Java</li>
+        <li>Python</li>
+    </ol>
+
+    <h3>Hobbies</h3>
+    <ul>
+        <li>Reading</li>
+        <li>Listening to music</li>
+        <li>Problem solving</li>
+    </ul>
+
+    <h3>Skill Levels</h3>
+    <label>HTML</label>
+    <progress value="80" max="100"></progress><br><br>
+
+    <label>Java</label>
+    <progress value="65" max="100"></progress><br><br>
+
+    <label>Python</label>
+    <progress value="60" max="100"></progress>
+</section>
+
+<section>
+    <h2>Media</h2>
+
+    <figure>
+        <img src="https://i.pinimg.com/474x/09/b8/5f/09b85f85432af5ee3dd5b80cd4689426.jpg" alt="My profile picture" width="200">
+        <figcaption>My Profile Photo</figcaption>
+    </figure>
+
+    <figure>
+        <audio controls>
+            <source src="sample-audio.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <figcaption>My Favorite Audio</figcaption>
+    </figure>
+</section>
+
+<section id="academics">
+    <h2>Academic Details</h2>
+
+    <table border="1">
+        <caption>Semester Marks</caption>
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td>Mathematics</td>
+            <td>85</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>Computer Science</td>
+            <td>88</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>Physics</td>
+            <td>78</td>
+            <td>B+</td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td>82</td>
+            <td>A</td>
+        </tr>
+    </table>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender">
+        <label for="female">Female</label><br><br>
+
+        <label>Interests:</label><br>
+        <input type="checkbox" id="coding" name="interest">
+        <label for="coding">Coding</label><br>
+        <input type="checkbox" id="music" name="interest">
+        <label for="music">Music</label><br>
+        <input type="checkbox" id="sports" name="interest">
+        <label for="sports">Sports</label><br><br>
+
+        <label for="contactmethod">Preferred Contact Method:</label><br>
+        <select id="contactmethod" name="contactmethod">
+            <option>Email</option>
+            <option>Phone</option>
+            <option>WhatsApp</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2026 Abinaya. All rights reserved.</p>
+</footer>
+<script src="script.js"></script></body>
+</html>
